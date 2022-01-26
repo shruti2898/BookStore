@@ -209,11 +209,7 @@ namespace BookStoreRepository.Repository
                 command.Parameters.AddWithValue("@UserPassword", user.UserPassword);
                 connection.Open();
                 var result = await command.ExecuteNonQueryAsync();
-                if(result == 1)
-                {
-                    return true;
-                }
-                return false;
+                return result == 1 ? true : false;
             }
             catch (ArgumentNullException exception)
             {
