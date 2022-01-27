@@ -18,4 +18,8 @@
     <ProjectReference Include="..\BookStoreModels\BookStoreModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="C:\Users\Mehta\.nuget\packages\accord\3.8.0\build\Accord.dll.config" />
+  </ItemGroup>
+
 </Project>
