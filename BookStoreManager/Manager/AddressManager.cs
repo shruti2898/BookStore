@@ -27,6 +27,18 @@ namespace BookStoreManager.Manager
             }
         }
 
+        public async Task<bool> DeleteAddress(int addressId)
+        {
+            try
+            {
+                return await this.repository.DeleteAddress(addressId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<UserAddressModel> UpdateAddress(UserAddressModel address)
         {
             try
