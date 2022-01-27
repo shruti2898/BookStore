@@ -61,5 +61,27 @@ namespace BookStore.Controller
                 return this.NotFound(new { Status = false, ex.Message });
             }
         }
+
+        [HttpDelete]
+        [Route("delete/{addressId}")]
+        public async Task<IActionResult> DeleteAddress(int addressId)
+        {
+            try
+            {
+                bool result = await this.manager.DeleteAddress(addressId);
+                if (result)
+                {
+                    return this.Ok(new { Status = true, Message = "Address deleted succesfully"});
+                }
+                else
+                {
+                    return this.BadRequest(new { Status = false, Message = "Unable to delete address" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return this.NotFound(new { Status = false, ex.Message });
+            }
+        }
     }
 }

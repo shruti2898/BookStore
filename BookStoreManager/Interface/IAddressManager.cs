@@ -10,5 +10,6 @@ namespace BookStoreManager.Interface
     {
         Task<UserAddressModel> AddAddress(UserAddressModel address);
         Task<UserAddressModel> UpdateAddress(UserAddressModel address);
+        Task<bool> DeleteAddress(int addressId);
     }
 }

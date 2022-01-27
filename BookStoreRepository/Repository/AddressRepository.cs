@@ -80,5 +80,27 @@ namespace BookStoreRepository.Repository
                 connection.Close();
             }
         }
+
+        public async Task<bool> DeleteAddress(int addressId)
+        {
+            SqlConnection connection = new SqlConnection(this.connectionString);
+            try
+            {
+                SqlCommand command = new SqlCommand("spDeleteAddress", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@AddressId", addressId);
+                connection.Open();
+                var result = await command.ExecuteNonQueryAsync();
+                return result == 1 ? true : false;
+            }
+            catch (ArgumentNullException exception)
+            {
+                throw new Exception(exception.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
