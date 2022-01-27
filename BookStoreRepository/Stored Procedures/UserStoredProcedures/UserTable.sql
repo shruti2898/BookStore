@@ -6,7 +6,7 @@
 USE [BookStore]
 
 CREATE TABLE [dbo].[Users](
-	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] IDENTITY(1,1) PRIMARY KEY,
 	[UserName] [varchar](30) NULL,
 	[UserEmail] [varchar](50) NULL,
 	[UserMobile] [varchar](30) NULL,
